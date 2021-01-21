@@ -46,18 +46,27 @@ const oggetti = [
     'prefisso': 'fas',
     'tipo': 'tecnologia',
     'famiglia': 'fa'
-  },
+  }
 ];
 
 const contenitoreOggetti = document.getElementById('objects-container');
+const colors = ['red', 'blue', 'green'];
+
 
 oggetti.forEach((element) => {
-  const {nome} = element;
-  contenitoreOggetti.innerHTML += `
-  <div>
-    <i class="fas fa-${nome}"></i>
-    ${nome}
-  </div>
 
-  `
+  const {nome, tipo} = element;
+
+    contenitoreOggetti.innerHTML += `
+    <div>
+      <i class="fas fa-${nome}"></i>
+      ${nome}
+    </div>
+`
+
 });
+
+
+
+
+console.log(oggetti);

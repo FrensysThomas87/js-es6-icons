@@ -51,8 +51,20 @@ const oggetti = [
 
 const contenitoreOggetti = document.getElementById('objects-container');
 const colors = ['red', 'blue', 'green'];
+const selezioneTipi = document.getElementsByClassName('type-select')[0];
 
+const typeList = [];
+oggetti.forEach((element) => {
+  if(!typeList.includes(element.tipo)) {
+    typeList.push(element.tipo);
+  }
+})
 
+typeList.forEach((element) => {
+  selezioneTipi.innerHTML += `
+    <option value="${element}">${element}</option>
+  `
+});
 
 oggetti.forEach((element) => {
 

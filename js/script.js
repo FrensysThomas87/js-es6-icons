@@ -49,51 +49,51 @@ const oggetti = [
   }
 ];
 
+// div che contiene gli oggetti
 const contenitoreOggetti = document.getElementById('objects-container');
 const colors = ['red', 'blue', 'green'];
+
+//menu a tendina
 const selezioneTipi = document.getElementsByClassName('type-select')[0];
 
+// costante che contiene le chiavi per il menu a tendina
 const typeList = [];
 
-oggetti.forEach((element) => {
 
-  const {nome, tipo} = element;
+oggetti.forEach((element,index) => {
+
+  const {nome, prefisso, famiglia, tipo} = element;
+
+  if(!typeList.includes(tipo)) {
+    typeList.push(tipo);
+  }
+
+  const indexType = typeList.indexOf(tipo);
+  element.colors = colors[indexType];
+
+
+
 
     contenitoreOggetti.innerHTML += `
     <div>
-      <i class="fas fa-${nome}"></i>
+      <i class="${prefisso} ${famiglia}-${nome}" style="color:${element.colors}"></i>
       ${nome}
     </div>
 `
-
 });
 
-const arrayTipiAnimali = oggetti.filter((element) => {
-
-  return element.tipo === 'animali';
-
-});
+console.log(oggetti);
 
 
-const arrayTipiAutomobili = oggetti.filter((element) => {
 
-  return element.tipo === 'automobili';
 
-});
 
-const arrayTipiTecnologia = oggetti.filter((element) => {
+//---------------------------MILESTONE 2------------------------------------
 
-  return element.tipo === 'tecnologia';
 
-});
 
 //----------------------------MILESTONE 3------------------------------------
 
-oggetti.forEach((element) => {
-  if(!typeList.includes(element.tipo)) {
-    typeList.push(element.tipo);
-  }
-})
 
 typeList.forEach((element) => {
   selezioneTipi.innerHTML += `

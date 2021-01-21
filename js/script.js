@@ -1,50 +1,63 @@
 const oggetti = [
   {
-    'nome': 'scimmia',
+    'nome': 'cat',
     'prefisso': 'fas',
     'tipo': 'animali',
     'famiglia': 'fa'
   },
 
   {
-    'nome': 'tigre',
+    'nome': 'hippo',
     'prefisso': 'fas',
     'tipo': 'animali',
     'famiglia': 'fa'
   },
 
   {
-    'nome': 'cavallo',
+    'nome': 'horse',
     'prefisso': 'fas',
     'tipo': 'animali',
     'famiglia': 'fa'
   },
 
   {
-    'nome': 'ferrari',
+    'nome': 'car',
     'prefisso': 'fas',
     'tipo': 'automobili',
     'famiglia': 'fa'
   },
 
   {
-    'nome': 'lamborghini',
+    'nome': 'truck-pickup',
     'prefisso': 'fas',
     'tipo': 'automobili',
     'famiglia': 'fa'
   },
 
   {
-    'nome': 'computer',
+    'nome': 'laptop',
     'prefisso': 'fas',
     'tipo': 'tecnologia',
     'famiglia': 'fa'
   },
 
   {
-    'nome': 'smartphone',
+    'nome': 'mobile',
     'prefisso': 'fas',
     'tipo': 'tecnologia',
     'famiglia': 'fa'
   },
 ];
+
+const contenitoreOggetti = document.getElementById('objects-container');
+
+oggetti.forEach((element) => {
+  const {nome} = element;
+  contenitoreOggetti.innerHTML += `
+  <div>
+    <i class="fas fa-${nome}"></i>
+
+  </div>
+
+  `
+});

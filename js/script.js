@@ -53,6 +53,7 @@ const contenitoreOggetti = document.getElementById('objects-container');
 const colors = ['red', 'blue', 'green'];
 
 
+
 oggetti.forEach((element) => {
 
   const {nome, tipo} = element;
@@ -66,7 +67,21 @@ oggetti.forEach((element) => {
 
 });
 
+const arrayTipiAnimali = oggetti.filter((element) => {
+
+  return element.tipo === 'animali';
+
+});
 
 
+const arrayTipiAutomobili = oggetti.filter((element) => {
 
-console.log(oggetti);
+  return element.tipo === 'automobili';
+
+});
+
+const arrayTipiTecnologia = oggetti.filter((element) => {
+
+  return element.tipo === 'tecnologia';
+
+});

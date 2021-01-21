@@ -56,7 +56,7 @@ oggetti.forEach((element) => {
   contenitoreOggetti.innerHTML += `
   <div>
     <i class="fas fa-${nome}"></i>
-
+    ${nome}
   </div>
 
   `

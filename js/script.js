@@ -54,17 +54,6 @@ const colors = ['red', 'blue', 'green'];
 const selezioneTipi = document.getElementsByClassName('type-select')[0];
 
 const typeList = [];
-oggetti.forEach((element) => {
-  if(!typeList.includes(element.tipo)) {
-    typeList.push(element.tipo);
-  }
-})
-
-typeList.forEach((element) => {
-  selezioneTipi.innerHTML += `
-    <option value="${element}">${element}</option>
-  `
-});
 
 oggetti.forEach((element) => {
 
@@ -97,3 +86,41 @@ const arrayTipiTecnologia = oggetti.filter((element) => {
   return element.tipo === 'tecnologia';
 
 });
+
+//----------------------------MILESTONE 3------------------------------------
+
+oggetti.forEach((element) => {
+  if(!typeList.includes(element.tipo)) {
+    typeList.push(element.tipo);
+  }
+})
+
+typeList.forEach((element) => {
+  selezioneTipi.innerHTML += `
+    <option value="${element}">${element}</option>
+  `
+});
+
+const selector = $('.type-select');
+
+selector.change(function() {
+  let valore = $(this).val();
+  // alert(valore);
+  contenitoreOggetti.innerHTML = `
+
+`
+  oggetti.forEach((element) => {
+    const {nome, tipo} = element;
+    if(valore === 'animali'){
+      contenitoreOggetti.innerHTML += `
+        <div>
+          <i class="fas fa-${nome}"></i>
+          ${nome}
+        </div>
+      `
+
+    }
+  });
+
+
+})

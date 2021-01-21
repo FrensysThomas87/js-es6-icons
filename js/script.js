@@ -60,41 +60,40 @@ const selezioneTipi = document.getElementsByClassName('type-select')[0];
 const typeList = [];
 
 
-oggetti.forEach((element,index) => {
+
+
+
+
+
+oggetti.forEach((element) => {
 
   const {nome, prefisso, famiglia, tipo} = element;
 
+  // pusho tutti gli elementi 'tipo' nell'array typelist, prendendoli da 'oggetti'
   if(!typeList.includes(tipo)) {
     typeList.push(tipo);
   }
 
+
+
+  // prendo la posizione di ogni elemento 'tipo' all'interno dell'array 'typeList' che contiene i tre tipi
   const indexType = typeList.indexOf(tipo);
+
+  //qui vado a creare la nuova proprietà 'colors' all'interno di 'oggetti' abbinando ogni colore ad un tipo
   element.colors = colors[indexType];
 
 
 
-
-    contenitoreOggetti.innerHTML += `
-    <div>
-      <i class="${prefisso} ${famiglia}-${nome}" style="color:${element.colors}"></i>
-      ${nome}
-    </div>
-`
+    const listHtml = `<div><i class="${prefisso} ${famiglia}-${nome}" style="color:${element.colors}">${nome}</i></div>`;
+    contenitoreOggetti.innerHTML += listHtml;
 });
 
 console.log(oggetti);
 
 
-
-
-
-//---------------------------MILESTONE 2------------------------------------
-
-
-
 //----------------------------MILESTONE 3------------------------------------
 
-
+// qui inserisco tutti gli elementi 'tipo' all'interno del menu a tendina
 typeList.forEach((element) => {
   selezioneTipi.innerHTML += `
     <option value="${element}">${element}</option>
@@ -110,16 +109,7 @@ selector.change(function() {
 
 `
   oggetti.forEach((element) => {
-    const {nome, tipo} = element;
-    if(valore === 'animali'){
-      contenitoreOggetti.innerHTML += `
-        <div>
-          <i class="fas fa-${nome}"></i>
-          ${nome}
-        </div>
-      `
 
-    }
   });
 
 
